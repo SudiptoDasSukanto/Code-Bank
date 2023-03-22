@@ -126,11 +126,32 @@ void postOrder(Node* root){   //LRN
 
 }
 
+bool searchBST(Node* root , int d){
+    if(root == NULL ){
+        return false ;
+    }
+
+    if(root->data == d ){
+        return true ;
+    }
+
+    if(root->data > d){
+        return searchBST(root->left , d);
+    }
+
+    else{
+        return searchBST(root->right , d);
+    }
+}
+
 int main(){
     Node* root = NULL ;
+    // 5 3 2 4 8 6 -1
     
     takeInput(root) ;
     cout << "LevelOrder Traversal \n" ;
     levelOrder(root);
     //inOrder(root) ;
+
+    cout<< searchBST(root,9);
 }
